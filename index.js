@@ -1,19 +1,19 @@
 
 var ScriptServer = require('scriptserver');
 
-module.exports = function(self) {
+module.exports = function(server) {
     
-    self.commands = {};
+    server.commands = server.commands || {};
     
-    self.parseLoop.parseCommand = {
+    server.parseLoop.parseCommand = {
         regexp: /<([\S]+)>\s~([\S]+)\s?(.*)/,
         id: 'parseCommand',
         method: function(stripped) {
-            if (stripped && self.commands[stripped[2]]) {
-                self.commands[stripped[2]]({
+            if (stripped && server.commands[stripped[2]]) {
+                server.commands[stripped[2]]({
                     sender: stripped[1],
                     command: stripped[2],
-                    args: stripped[3],
+                    args: stripped[3].split(' '),
                     timestamp: Date.now()
                 });
             }
