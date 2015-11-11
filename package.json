@@ -1,6 +1,6 @@
 {
   "name": "scriptserver-command",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Command addon for scriptserver",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/garrettjoecox/scriptserver-command/issues"
   },
-  "homepage": "https://github.com/garrettjoecox/scriptserver-command#readme"
+  "homepage": "https://github.com/garrettjoecox/scriptserver-command#readme",
+  "dependencies": {
+    "scriptserver": "*"
+  }
 }

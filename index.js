@@ -2,11 +2,11 @@
 var ScriptServer = require('scriptserver');
 
 module.exports = function(server) {
-    
+
     server.commands = server.commands || {};
-    
+
     server.parseLoop.parseCommand = {
-        regexp: /<([\S]+)>\s~([\S]+)\s?(.*)/,
+        regexp: /<([\w]+)>\s~([\w]+)\s?(.*)/,
         id: 'parseCommand',
         method: function(stripped) {
             if (stripped && server.commands[stripped[2]]) {
