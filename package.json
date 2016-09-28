@@ -1,11 +1,9 @@
 {
   "name": "scriptserver-command",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Command addon for scriptserver",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/garrettjoecox/scriptserver-command.git"
@@ -17,6 +15,6 @@
   },
   "homepage": "https://github.com/garrettjoecox/scriptserver-command#readme",
   "dependencies": {
-    "scriptserver": "*"
+    "scriptserver-event": "*"
   }
 }

@@ -1,29 +1,31 @@
+'use strict';
 
-var ScriptServer = require('scriptserver');
+module.exports = function() {
+  const server = this;
+  const commands = {};
 
-module.exports = function(server) {
+  server.use(require('scriptserver-event'));
 
-    server.commands = server.commands || {};
+  server.command = function(cmd, callback) {
+    commands[cmd] = commands[cmd] || [];
+    commands[cmd].push(callback);
+  }
 
-    server.parseLoop.parseCommand = {
-        regexp: /<([\w]+)>\s~([\w]+)\s?(.*)/,
-        id: 'parseCommand',
-        method: function(stripped) {
-            if (stripped && server.commands[stripped[2]]) {
-                server.commands[stripped[2]]({
-                    sender: stripped[1],
-                    command: stripped[2],
-                    args: stripped[3].split(' '),
-                    timestamp: Date.now()
-                });
-            }
-        }
-    };
-};
+  server.on('chat', event => {
+    const stripped = event.message.match(/~([\w]+)\s?(.*)/);
+    if (stripped && commands.hasOwnProperty(stripped[1])) {
+      server.emit('command', {
+        player: event.player,
+        command: stripped[1],
+        args: stripped[2].split(' '),
+        timestamp: Date.now()
+      });
+    }
+  });
 
-ScriptServer.prototype.command = function(name, callback) {
-    var self = this;
-
-    self.commands[name] = callback;
-    return self;
-};
+  server.on('command', event => {
+    if (commands.hasOwnProperty(event.command)) {
+      commands[event.command].forEach(callback => callback(event));
+    }
+  });
+}
