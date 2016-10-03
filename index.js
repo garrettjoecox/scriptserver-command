@@ -12,7 +12,7 @@ module.exports = function() {
   }
 
   server.on('chat', event => {
-    const stripped = event.message.match(/~([\w]+)\s?(.*)/);
+    const stripped = event.message.match(/^~([\w]+)\s?(.*)/);
     if (stripped && commands.hasOwnProperty(stripped[1])) {
       server.emit('command', {
         player: event.player,
