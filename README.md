@@ -15,8 +15,20 @@ And in your `server` file:
 server.use(require('scriptserver-command'));
 ```
 
+## Configuration
+The prefix scriptserver-command uses for commands is interchangable. What you pass in is parsed as regex, so you can do something as simple as a single character like the default `~`, or a wider variety of them with `[~!.\]`.
+
+The following is the default configuration:
+```
+const server = new ScriptServer({
+  command: {
+    prefix: '~'
+  }
+});
+```
+
 ## Usage
-This module provides the following interface for adding custom server commands to be used in the ingame chat. The provided callback will be invoked when a player types the specified command into chat prefixed with the `~` key. (ie: `~spawn`) The prefix key soon will be configurable but for now it's hardcoded to `~`.
+This module provides the following interface for adding custom server commands to be used in the ingame chat. The provided callback will be invoked when a player types the specified command into chat prefixed with specified prefix. (Defaults to `~`).
 
 ```javascript
 // Registers the command ~spawn to the following function
