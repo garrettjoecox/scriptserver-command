@@ -1,21 +1,29 @@
 {
   "name": "scriptserver-command",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Command addon for scriptserver",
   "main": "index.js",
-  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/garrettjoecox/scriptserver-command.git"
   },
   "author": "Garrett Cox <garrettjcox@gmail.com> (http://garrettcox.io)",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/garrettjoecox/scriptserver-command/issues"
   },
   "homepage": "https://github.com/garrettjoecox/scriptserver-command#readme",
   "dependencies": {
-    "lodash": "^4.16.4",
-    "scriptserver-event": "*"
+    "lodash.defaultsdeep": "^4.6.0",
+    "scriptserver-event": "^1.0.0",
+    "scriptserver-util": "^1.0.0"
+  },
+  "peerDependencies": {
+    "scriptserver": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0"
   }
 }

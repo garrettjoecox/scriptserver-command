@@ -1,0 +1,10 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "func-names": "off",
+    "no-multi-assign": "off",
+    "global-require": "off",
+    "no-param-reassign": "off",
+    "no-prototype-builtins": "off"
+  }
+}
