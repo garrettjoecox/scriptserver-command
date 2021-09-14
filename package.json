@@ -1,7 +1,7 @@
 {
   "name": "scriptserver-command",
-  "version": "1.0.1",
-  "description": "Command addon for scriptserver",
+  "version": "1.0.2",
+  "description": "Deprecated - Moved to @scriptserver/command",
   "main": "index.js",
   "repository": {
     "type": "git",
